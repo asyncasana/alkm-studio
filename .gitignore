@@ -1,0 +1,17 @@
+# Ignore node_modules in subfolders
+alkm-studio-backend/node_modules/
+alkm-studio-storefront/node_modules/
+
+# Build outputs
+alkm-studio-backend/dist/
+alkm-studio-storefront/.next/
+
+# Env files
+**/.env
+**/.env.local
+
+# Logs
+**/npm-debug.log*
+
+# Mac
+.DS_Store
