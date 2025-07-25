@@ -1,5 +1,15 @@
 {
   "version": 2,
-  "buildCommand": "medusa build",
-  "outputDirectory": ".medusa/server"
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
 }
