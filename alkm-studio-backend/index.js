@@ -1,26 +1,15 @@
-const { loadEnv } = require("@medusajs/framework/utils");
 const { MedusaApp } = require("@medusajs/framework");
 
-// Load environment variables
-loadEnv(process.env.NODE_ENV || "production", process.cwd());
-
-let app;
-
-async function createServer() {
-  if (!app) {
-    const medusaApp = await MedusaApp({
+module.exports = async (req, res) => {
+  try {
+    const app = await MedusaApp({
       directory: process.cwd(),
     });
 
-    app = medusaApp.listen(process.env.PORT || 9000, () => {
-      console.log("Medusa server is running");
-    });
+    // Handle the request
+    return app(req, res);
+  } catch (error) {
+    console.error("Medusa app error:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
-  return app;
-}
-
-// Export for Vercel
-module.exports = async (req, res) => {
-  const server = await createServer();
-  return server(req, res);
 };
