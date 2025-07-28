@@ -6,12 +6,8 @@ cmds = [
   "npm run build",
   "ls -la .medusa/",
   "ls -la .medusa/client/ || echo 'Client directory not found'",
-  "find .medusa -name '*.html' || echo 'No HTML files found'",
-  "cp -r .medusa /app/medusa-build"
+  "find .medusa -name '*.html' || echo 'No HTML files found'"
 ]
 
-[phases.setup]
-cmds = ["mkdir -p /app/.medusa && cp -r /app/medusa-build/* /app/.medusa/"]
-
 [start]
-cmd = "ls -la .medusa/ && npm start"
+cmd = "npm start"
