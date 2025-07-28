@@ -2,7 +2,12 @@
 cmds = ["npm install --legacy-peer-deps"]
 
 [phases.build]
-cmds = ["npm run build"]
+cmds = [
+  "npm run build",
+  "ls -la .medusa/",
+  "ls -la .medusa/client/ || echo 'Client directory not found'",
+  "find .medusa -name '*.html' || echo 'No HTML files found'"
+]
 
 [start]
 cmd = "npm start"
