@@ -23,4 +23,5 @@ build
 !.yarn/sdks
 !.yarn/versions
 
-.medusa
+# Comment out .medusa for production deployment
+# .medusa
